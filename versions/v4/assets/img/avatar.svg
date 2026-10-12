@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="林棋铭 的头像">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0e27"/>
+      <stop offset="1" stop-color="#151a3f"/>
+    </linearGradient>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00f0ff"/>
+      <stop offset="1" stop-color="#ff2bd6"/>
+    </linearGradient>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" fill="none" stroke="rgba(0,240,255,0.10)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="400" height="400" fill="url(#bg)"/>
+  <rect width="400" height="400" fill="url(#grid)"/>
+
+  <!-- 外圈光环 -->
+  <circle cx="200" cy="200" r="132" fill="none" stroke="url(#g)" stroke-width="2" opacity="0.55"/>
+  <circle cx="200" cy="200" r="118" fill="none" stroke="rgba(0,240,255,0.25)" stroke-width="1"/>
+
+  <!-- 四角装饰 -->
+  <path d="M60 96 V64 H92" fill="none" stroke="#00f0ff" stroke-width="3" opacity="0.7"/>
+  <path d="M340 96 V64 H308" fill="none" stroke="#00f0ff" stroke-width="3" opacity="0.7"/>
+  <path d="M60 304 V336 H92" fill="none" stroke="#ff2bd6" stroke-width="3" opacity="0.7"/>
+  <path d="M340 304 V336 H308" fill="none" stroke="#ff2bd6" stroke-width="3" opacity="0.7"/>
+
+  <!-- 字母标记 -->
+  <text x="200" y="206" text-anchor="middle" dominant-baseline="central"
+        font-family="Orbitron, Rajdhani, system-ui, sans-serif"
+        font-size="104" font-weight="900" letter-spacing="6" fill="url(#g)">LQM</text>
+  <text x="200" y="272" text-anchor="middle"
+        font-family="Rajdhani, system-ui, sans-serif"
+        font-size="20" letter-spacing="6" fill="#8aa0c8">HDU · 25320321</text>
+</svg>

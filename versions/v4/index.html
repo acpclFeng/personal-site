@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>林棋铭 · 个人主页</title>
+  <meta name="description" content="林棋铭 的个人主页 —— 杭州电子科技大学圣光机联合学院计算机科学与技术在读，爱探索、爱打羽毛球。" />
+  <meta name="author" content="林棋铭" />
+  <meta name="keywords" content="林棋铭,个人主页,杭州电子科技大学,圣光机联合学院,计算机科学与技术,自我介绍" />
+  <meta name="theme-color" content="#050816" />
+
+  <!-- Open Graph / 社交分享 -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="林棋铭 · 个人主页" />
+  <meta property="og:description" content="杭州电子科技大学 · 计算机科学与技术 · 大二在读。爱探索，爱打羽毛球。" />
+  <meta property="og:locale" content="zh_CN" />
+
+  <!-- 字体：Orbitron 做科技标题，Rajdhani 做正文，均带 fallback -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+</head>
+<body data-theme="dark">
+
+  <!-- 顶部滚动进度条 -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- 鼠标跟随霓虹光晕 -->
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <!-- Matrix 代码雨叠加层（可开关，默认关闭） -->
+  <canvas class="matrix-canvas" id="matrixCanvas" aria-hidden="true"></canvas>
+
+  <!-- ============ Header ============ -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="#hero" class="logo" aria-label="返回首页">
+        <span class="logo-mark">◈</span>
+        <span class="logo-text">林棋铭</span>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="主导航">
+        <a href="#hero" class="nav-link">首页</a>
+        <a href="#about" class="nav-link">关于我</a>
+        <a href="#projects" class="nav-link">足迹</a>
+        <a href="#skills" class="nav-link">MBTI</a>
+        <a href="#academics" class="nav-link">学业</a>
+        <a href="#blog" class="nav-link">近况</a>
+        <a href="#contact" class="nav-link">联系</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#versions" class="btn btn-ghost btn-sm">查看往期版本</a>
+        <a href="#contact" class="btn btn-primary btn-sm">联系我</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="切换主题" title="切换明暗主题">
+          <span class="theme-icon">🌙</span>
+        </button>
+        <button class="menu-toggle" id="menuToggle" aria-label="打开菜单" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 移动端抽屉菜单 -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="#hero" class="m-link">首页</a>
+    <a href="#about" class="m-link">关于我</a>
+    <a href="#projects" class="m-link">足迹</a>
+    <a href="#skills" class="m-link">MBTI</a>
+    <a href="#academics" class="m-link">学业</a>
+    <a href="#blog" class="m-link">近况</a>
+    <a href="#contact" class="m-link">联系</a>
+    <div class="m-actions">
+      <a href="#versions" class="btn btn-ghost btn-sm">查看往期版本</a>
+      <a href="#contact" class="btn btn-primary btn-sm">联系我</a>
+    </div>
+  </div>
+
+  <div style="background:rgba(0,240,255,.08);border-bottom:1px solid rgba(0,240,255,.3);color:#cfe9ff;padding:10px 16px;text-align:center;font-size:.9rem;">🕓 你正在查看 <strong>v4.0</strong> 历史版本 —— <a href="../../index.html" style="color:#00f0ff;font-weight:700;">返回最新版本 →</a></div>
+<main>
+    <!-- ============ Hero ============ -->
+    <section class="hero" id="hero">
+      <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+      <div class="hero-grid" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <p class="hero-eyebrow">// 杭州电子科技大学 · 圣光机联合学院</p>
+        <h1 class="hero-title">
+          <span class="glitch" data-text="林棋铭">林棋铭</span>
+        </h1>
+        <p class="hero-typed">
+          <span id="typedText"></span><span class="caret">|</span>
+        </p>
+        <p class="hero-tagline">一个爱探索、爱打羽毛球的大二学生。保持好奇，慢慢生长。</p>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">看看我的足迹 →</a>
+          <a href="#contact" class="btn btn-ghost">联系我</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-num" data-count="2">0</span><span class="stat-label">大二在读</span></div>
+          <div class="stat"><span class="stat-num" data-count="1">0</span><span class="stat-label">学生会职务</span></div>
+          <div class="stat"><span class="stat-num">∞</span><span class="stat-label">好奇心</span></div>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-hint" aria-label="向下滚动">
+        <span class="mouse"><span class="wheel"></span></span>
+      </a>
+    </section>
+
+    <!-- ============ About ============ -->
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-index">01</span>
+          <h2 class="section-title">关于我</h2>
+          <p class="section-sub">ABOUT</p>
+        </div>
+
+        <div class="about-card">
+          <div class="about-photo">
+            <div class="photo-frame">
+              <img src="assets/img/avatar-林棋铭.jpg" alt="林棋铭 的头像" loading="lazy" />
+              <div class="photo-ring"></div>
+            </div>
+            <div class="about-id">
+              <span class="id-name">林棋铭</span>
+              <span class="id-no">学号 25320321</span>
+            </div>
+          </div>
+
+          <div class="about-text">
+            <h3 class="about-name">你好，我是 <span class="hl">林棋铭</span> 👋</h3>
+            <p class="about-lead">
+              杭州电子科技大学 · 圣光机联合学院 · 计算机科学与技术 · <strong>大二在读</strong>。
+            </p>
+            <p>
+              我是杭电圣光机联合学院计算机科学与技术的大二本科生。个人比较爱好探索，喜欢打羽毛球；
+              在学院里，我也担任院学生会办公室部长，懂一些编程基础，正在一点点把基础打扎实。
+            </p>
+
+            <div class="about-tags">
+              <span class="tag">🌱 爱探索</span>
+              <span class="tag">🏸 羽毛球</span>
+              <span class="tag">🏢 院学生会办公室部长</span>
+              <span class="tag">💻 编程入门中</span>
+            </div>
+
+            <p class="about-values">
+              <strong>我的态度：</strong> 先把基础打牢，再谈做出什么；真诚 > 聪明，坚持 > 速成。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 成长足迹（原作品画廊） ============ -->
+    <section class="section projects" id="projects">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-index">02</span>
+          <h2 class="section-title">成长足迹</h2>
+          <p class="section-sub">MY TRACKS</p>
+        </div>
+
+        <div class="project-grid" id="projectGrid">
+          <!-- 卡片由 JS 注入，亦可直接在此手写 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MBTI（原技能） ============ -->
+    <section class="section skills" id="skills">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-index">03</span>
+          <h2 class="section-title">我的 MBTI</h2>
+          <p class="section-sub">PERSONALITY</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="radar-wrap">
+            <canvas id="radarCanvas" width="420" height="420" aria-label="MBTI 四维雷达图"></canvas>
+          </div>
+          <div class="mbti-panel" id="mbtiPanel">
+            <!-- 由 JS 注入 -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 学业 / 成绩 ============ -->
+    <section class="section academics" id="academics">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-index">04</span>
+          <h2 class="section-title">学业 · 成绩</h2>
+          <p class="section-sub">ACADEMICS</p>
+        </div>
+
+        <p class="academics-tip">下面是我的绩点情况（截图来自教务系统）👇 点开可放大查看。</p>
+        <div class="academics-grid" id="academicsGrid">
+          <!-- 绩点卡片由 JS 注入 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 成长时间线 ============ -->
+    <section class="section experience" id="experience">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-index">05</span>
+          <h2 class="section-title">成长时间线</h2>
+          <p class="section-sub">EDUCATION</p>
+        </div>
+
+        <div class="timeline" id="timeline">
+          <!-- 时间线节点由 JS 注入 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 近况（原博客） ============ -->
+    <section class="section blog" id="blog">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-index">06</span>
+          <h2 class="section-title">最近在做</h2>
+          <p class="section-sub">NOW</p>
+        </div>
+
+        <div class="blog-grid" id="nowGrid">
+          <!-- 近况卡片由 JS 注入 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 版本历程 ============ -->
+    <section class="section versions" id="versions">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-index">07</span>
+          <h2 class="section-title">版本历程</h2>
+          <p class="section-sub">VERSION HISTORY</p>
+        </div>
+        <p class="versions-tip">这个网站是一步步长成现在这样的 —— 点开每一版，看看它是怎么变的 👇</p>
+        <div class="version-list" id="versionList"></div>
+      </div>
+    </section>
+
+    <!-- ============ Contact ============ -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-index">08</span>
+          <h2 class="section-title">联系我</h2>
+          <p class="section-sub">GET IN TOUCH</p>
+        </div>
+
+        <div class="contact-grid">
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="field">
+              <label for="cf-name">称呼</label>
+              <input type="text" id="cf-name" name="name" placeholder="怎么称呼你？" required />
+            </div>
+            <div class="field">
+              <label for="cf-email">你的邮箱</label>
+              <input type="email" id="cf-email" name="email" placeholder="name@example.com" required />
+            </div>
+            <div class="field">
+              <label for="cf-msg">想说的话</label>
+              <textarea id="cf-msg" name="message" rows="4" placeholder="聊聊、打个招呼，都行 :)" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">发送 ✦</button>
+            <p class="form-note" id="formNote" role="status"></p>
+          </form>
+
+          <aside class="contact-side">
+            <h3>其他方式</h3>
+            <ul class="contact-list">
+              <li><span class="c-icon">✉</span> <a href="mailto:1528139286@qq.com">1528139286@qq.com</a></li>
+              <li><span class="c-icon">💬</span> 微信：Lin6533897643864</li>
+              <li><span class="c-icon">🐧</span> QQ：1528139286</li>
+              <li><span class="c-icon">🐙</span> <a href="https://github.com/acpclFeng" target="_blank" rel="noopener">github.com/acpclFeng</a></li>
+            </ul>
+            <div class="contact-card">
+              <p>杭州电子科技大学 · 圣光机联合学院</p>
+              <p class="muted">计算机科学与技术 · 学号 25320321</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-mark">◈</span> 林棋铭
+        <p class="muted">保持好奇，慢慢生长。</p>
+      </div>
+
+      <nav class="footer-links" aria-label="页脚导航">
+        <a href="#hero">首页</a>
+        <a href="#about">关于我</a>
+        <a href="#projects">足迹</a>
+        <a href="#academics">学业</a>
+        <a href="#versions">版本历程</a>
+        <a href="#contact">联系</a>
+      </nav>
+
+      <div class="footer-social">
+        <a href="https://github.com/acpclFeng" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+        <a href="mailto:1528139286@qq.com" aria-label="邮箱">邮箱</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> 林棋铭（学号 25320321）. 保留所有权利.</p>
+      <p class="muted">
+        <a href="../v1/index.html">v1.0</a> ·
+        <a href="../v2/index.html">v2.0</a> ·
+        <a href="../v3/index.html">v3.0</a> ·
+        <button class="to-top" id="toTop">返回顶部 ↑</button>
+      </p>
+      <p class="muted footer-meta">
+        🕒 <span id="localClock">--:--:--</span> · 你是第 <span id="visitCount">1</span> 位到访（本地计数）
+      </p>
+    </div>
+  </footer>
+
+  <!-- 项目灯箱 -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="lightboxClose" aria-label="关闭">✕</button>
+      <div class="lightbox-body" id="lightboxBody"></div>
+    </div>
+  </div>
+
+  <!-- 迷你 AI 对话彩蛋 -->
+  <div class="chat-egg" id="chatEgg">
+    <div class="chat-panel" id="chatPanel" aria-hidden="true">
+      <div class="chat-head">
+        <span>🤖 林棋铭 的 AI 分身</span>
+        <button class="chat-close" id="chatClose" aria-label="关闭对话">✕</button>
+      </div>
+      <div class="chat-body" id="chatBody"></div>
+      <form class="chat-input" id="chatForm">
+        <input type="text" id="chatText" placeholder="问点什么…（试试：你是谁 / 专业 / 羽毛球）" autocomplete="off" />
+        <button type="submit">发送</button>
+      </form>
+    </div>
+    <button class="chat-fab" id="chatFab" aria-label="打开对话" title="和 林棋铭 的 AI 分身聊两句">🤖</button>
+  </div>
+
+  <!-- 代码雨开关 -->
+  <button class="fx-toggle" id="fxToggle" aria-label="切换代码雨" title="切换 Matrix 代码雨背景">⛆</button>
+
+  <script src="assets/js/particles.js"></script>
+  <script src="assets/js/radar.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/matrix.js"></script>
+  <script src="assets/js/chat.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
